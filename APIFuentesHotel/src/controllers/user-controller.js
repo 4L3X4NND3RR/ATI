@@ -28,7 +28,7 @@ export default class UserController {
         (error) => {
           if (!error) {
             connection.release()
-            res.status(200).send({ message: 'Usurio creado exitosamente!' })
+            res.status(200).send({ message: 'Usuario creado exitosamente!' })
           } else {
             console.log(error)
             res.status(500).send({ message: 'Algo salio mal al crear los usuarios!' })
