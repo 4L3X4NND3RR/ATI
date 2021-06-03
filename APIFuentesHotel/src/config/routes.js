@@ -1,6 +1,7 @@
 import Router from 'express'
 import UserController from '../controllers/user-controller.js'
 import LoginController from '../controllers/Login.js'
+import RoomController from '../controllers/room-controller.js'
 const routes = new Router()
 
 // LOGIN
@@ -27,6 +28,11 @@ routes.get('/commentary', (req, res) => {
 // ENDPOINT PARA OPTENER UN COMENTARIO
 routes.get('/commentary', (req, res) => {
   UserController.getUsers(req, res)
+})
+
+// ENDPOINT PARA OBTENER LOS CUARTOS
+routes.get('/rooms', (req, res) => {
+  RoomController.getRooms(req, res)
 })
 
 export default routes
