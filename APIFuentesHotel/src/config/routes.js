@@ -13,4 +13,15 @@ routes.get('/users', (req, res) => {
   UserController.getUsers(req, res)
 })
 
+// COMMENTARY
+
+// ENDPOINT PARA CREAR UN COMENTARIO
+routes.get('/commentary', (req, res) => {
+  UserController.getUsers(req, res)
+})
+// ENDPOINT PARA OPTENER UN COMENTARIO
+routes.get('/commentary', (req, res) => {
+  UserController.getUsers(req, res)
+})
+
 export default routes
