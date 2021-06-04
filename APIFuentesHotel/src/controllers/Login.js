@@ -11,12 +11,13 @@ export default class LoginController {
         if (!err) {
           user = rows[0]
           if (user === undefined) {
-            res.status(401).send('user does not exist')
+            res.status(401).send({ status: 401, message: 'user does not exist' })
+		  return
           }
           if (reci.password === user.password) {
-            res.status(200).send({ message: 'Bienvenido' })
+            res.status(200).send({ status: 200, message: 'Bienvenido' })
           } else {
-            res.status(401).send('login invalid')
+            res.status(401).send({ status: 401, message: 'login invalid' })
           }
         } else {
           res.status(500).send(err)
