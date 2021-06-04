@@ -4,4 +4,5 @@ export class Room {
   room_status_id?: number;
   price?: number;
   image_url?: string;
+  desc_room?:string;
 }

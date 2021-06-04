@@ -2,6 +2,7 @@ import Router from 'express'
 import UserController from '../controllers/user-controller.js'
 import LoginController from '../controllers/Login.js'
 import RoomController from '../controllers/room-controller.js'
+import ReservationController from '../controllers/reservation_controller.js'
 const routes = new Router()
 
 // LOGIN
@@ -35,4 +36,13 @@ routes.get('/rooms', (req, res) => {
   RoomController.getRooms(req, res)
 })
 
+// RESERVATION
+// ENDPOINT PARA CREAR UNA RESERVACION
+routes.post('/reservation', (req, res) => {
+  ReservationController.createReservation(req, res)
+})
+// ENDPOINT PARA OBTENER RESERVACIONES
+routes.get('/reservations', (req, res) => {
+  ReservationController.getReservations(req, res)
+})
 export default routes

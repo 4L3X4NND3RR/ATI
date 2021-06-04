@@ -1,0 +1,10 @@
+.fuente{
+
+  background-color:blue;
+  color:white;
+  font-family: ALGERIAN;
+  border-radius: 10PX;
+  border-style: solid;
+  border-color: black;
+  box-shadow: black;
+}

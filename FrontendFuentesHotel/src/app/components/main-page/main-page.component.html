@@ -64,16 +64,9 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
+        <h1 class="fw-light" class="fuente">Fuentes Hotel</h1>
         <p class="lead text-muted">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt quaerat
-          neque, reiciendis suscipit commodi dolore ducimus asperiores mollitia
-          atque facilis ad magni consequuntur excepturi voluptatibus laboriosam,
-          odio voluptatum, dignissimos quisquam!
-        </p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          Te ofrecemos el mejor servicio de habitaciones a un buen precio, pasa tu noche comoda, pasala bien solo en fuentes hotel.
         </p>
       </div>
     </div>
@@ -106,6 +99,7 @@
             class="btn btn-primary"
             data-bs-toggle="button"
             autocomplete="off"
+            (click)="filterSuitRoom()"
           >
             Suits
           </button>
@@ -114,9 +108,44 @@
             class="btn btn-primary"
             data-bs-toggle="button"
             autocomplete="off"
+            (click)="filterBungalowsRoom()"
           >
             Bungalows Familiares
           </button>
+        </div>
+      </div>
+
+      <div *ngIf="botones===true">
+        <div class="row">
+          <div class="col">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="button"
+              autocomplete="off"
+              (click)="filteroccupied()"
+            >
+              Filtrar por ocupados
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="button"
+              autocomplete="off"
+              (click)="filterReserved()"
+            >
+              filtar por reservados
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="button"
+              autocomplete="off"
+              (click)="filterFree()"
+            >
+              filtrar por libres
+          </button>
+          </div>
         </div>
       </div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -131,24 +160,21 @@
 
             <div class="card-body">
               <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {{room.desc_room}}
               </p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
-                    View
+                <div *ngFor="let reser of reservation">
+                  <div class="btn-group" *ngIf="room. room_status_id===2 && room.id_room===reser.id_room">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                    {{reser.final_date|date:"mediumDate"}}
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
-                    Edit
-                  </button>
+                </div></div>
+
+                <div *ngIf="room. room_status_id===1">
+                  <button class="btn btn-danger"  [disabled]="true" >Ocupada</button>
+                </div>
+                <div *ngIf="room. room_status_id===3">
+                  <button class="btn btn-success">Reservar</button>
                 </div>
                 <small class="text-muted">{{
                   room.price | currency: "GTQ"
