@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <div class="card mt-5 card text-white bg-dark" style="width: 600px">
+        <div class="card-header">Bienvenido a Fuentes Hotel</div>
+        <div class="card-body">
+          <form [formGroup]="formRegistrar" (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+              <label for="inputEmail" class="col-sm-5 col-form-label"
+                >Ingrese su primer nombre:</label
+              >
+              <div class="col-sm-7">
+                <input
+                  formControlName="primer_nombre"
+                  type="primer"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="
+                    formRegistrar.get('email')?.hasError('required') && submited
+                  "
+                  class="badge bg-danger"
+                >
+                  El primer nombre es requerido
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-5 col-form-label"
+                >Ingrese su segundo nombre:</label
+              >
+              <div class="col-sm-7">
+                <input
+                  formControlName="segundo_nombre"
+                  type="name"
+                  class="form-control"
+
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-5 col-form-label"
+                >Ingrese su primer apellido:</label
+              >
+              <div class="col-sm-7">
+                <input
+                  formControlName="primer_apellido"
+                  type="ape"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  formRegistrar.get('email')?.hasError('required') && submited
+                "
+                class="badge bg-danger"
+              >
+                El primer apellido es requerido
+              </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-5 col-form-label"
+                >Ingrese su segundo apellido:</label
+              >
+              <div class="col-sm-7">
+                <input
+                  formControlName="segundo_apellido"
+                  type="email"
+                  class="form-control"
+
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputEmail" class="col-sm-5 col-form-label"
+                >Ingrese su Email:</label
+              >
+              <div class="col-sm-7">
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  formRegistrar.get('email')?.hasError('required') && submited
+                "
+                class="badge bg-danger"
+              >
+                El email es requerido
+              </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-5 col-form-label"
+                >Ingrese su Contrase&ntilde;a:</label
+              >
+              <div class="col-sm-7">
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="form-control"
+                />
+                <div
+                *ngIf="
+                  formRegistrar.get('email')?.hasError('required') && submited
+                "
+                class="badge bg-danger"
+              >
+                La contrase&ntilde;a es requerida
+              </div>
+              </div>
+            </div>
+            <div class="row" style="margin-left: 40px;">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-4">
+                <button routerLink="/create-user" class="btn btn-success">
+                  Guardar
+                </button>
+              </div>
+              <div class="col-sm-4"></div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

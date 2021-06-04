@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
-      <div class="card mt-5" style="width: 600px">
+      <div class="card mt-5 card text-white bg-dark" style="width: 600px">
         <div class="card-header">Bienvenido a Fuentes Hotel</div>
         <div class="card-body">
           <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
@@ -43,13 +43,27 @@
                   "
                   class="badge bg-danger"
                 >
-                  La contrase&ntilde;a es requeridoa
+                  La contrase&ntilde;a es requerida
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">
+           <div class="row" style="margin-left: 25px;">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"> <button type="submit" class="btn btn-primary">
               Iniciar Sesi&oacute;n
             </button>
+          </div>
+          <br><br>
+          <div class="row" style="margin-left: 13px;">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <button routerLink="/create-user" class="btn btn-success">
+                Registrar
+              </button>
+            </div>
+            <div class="col-sm-4"></div>
+          </div>
+           </div>
           </form>
         </div>
       </div>
