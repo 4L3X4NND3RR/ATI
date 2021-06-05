@@ -6,25 +6,25 @@ export default class CommentaryController {
     const data = req.body
     const inser = {
       id_user: data.id_user,
-      commentary_desc: data.commentary_desc
+      commentary_desc: data.commentary_desc,
+      commentary_date: data.commentary_date
     }
-    console.log(inser)
     pool.getConnection((error, connection) => {
       if (error) throw error
       connection.query(
-        'CALL Create_Commentary (?,?)',
+        'CALL Create_Commentary (?,?,?)',
         [
           inser.id_user,
-          inser.commentary_desc
-
+          inser.commentary_desc,
+          inser.commentary_date
         ],
         (error) => {
           if (!error) {
             connection.release()
-            res.status(200).send({ message: 'Comentario creado exitosamente!' })
+            res.status(200).send({ success: true, message: 'Comentario creado exitosamente!' })
           } else {
             console.log(error)
-            res.status(500).send({ message: 'Algo salio mal al crear los comentarios!' })
+            res.status(500).send({ success: false, message: 'Algo salio mal al crear los comentarios!' })
           }
         }
       )
@@ -35,7 +35,7 @@ export default class CommentaryController {
   static getUsers (_req, res) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM commentary', (error, results) => {
+      connection.query('SELECT * FROM commentary_view', (error, results) => {
         if (error) {
           console.log(error)
         } else {

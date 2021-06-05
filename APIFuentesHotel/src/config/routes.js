@@ -3,6 +3,7 @@ import UserController from '../controllers/user-controller.js'
 import LoginController from '../controllers/Login.js'
 import RoomController from '../controllers/room-controller.js'
 import ReservationController from '../controllers/reservation_controller.js'
+import CommentaryController from '../controllers/commentary-controller.js'
 const routes = new Router()
 
 // LOGIN
@@ -23,12 +24,12 @@ routes.get('/users', (req, res) => {
 // COMMENTARY
 
 // ENDPOINT PARA CREAR UN COMENTARIO
-routes.get('/commentary', (req, res) => {
-  UserController.getUsers(req, res)
+routes.post('/commentary', (req, res) => {
+  CommentaryController.createCommentary(req, res)
 })
 // ENDPOINT PARA OPTENER UN COMENTARIO
 routes.get('/commentary', (req, res) => {
-  UserController.getUsers(req, res)
+  CommentaryController.getUsers(req, res)
 })
 
 // ENDPOINT PARA OBTENER LOS CUARTOS
