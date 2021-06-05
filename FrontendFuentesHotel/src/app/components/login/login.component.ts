@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       user.password = this.formLogin.get('password')?.value;
       this.loginService.login(user).subscribe((res) => {
         if (res.status === 200) {
-          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('user', JSON.stringify(res.user));
           this.loginService.logged.next(true);
           this.router.navigate(['/main-page']);
         }

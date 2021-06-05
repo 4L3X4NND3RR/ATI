@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CommentaryComponent } from './components/commentary/commentary.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, LoginComponent, CreateUserComponent],
+  declarations: [AppComponent, MainPageComponent, LoginComponent, CreateUserComponent, CommentaryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

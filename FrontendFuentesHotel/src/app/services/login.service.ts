@@ -11,11 +11,14 @@ export class LoginService {
   logged = new BehaviorSubject<boolean>(false);
   constructor(private _httpClient: HttpClient) {}
 
-  public login(user: User): Observable<{ status: number; message: string }> {
-    return this._httpClient.post<{ status: number; message: string }>(
-      this.url,
-      user
-    );
+  public login(
+    user: User
+  ): Observable<{ status: number; message: string; user: User }> {
+    return this._httpClient.post<{
+      status: number;
+      message: string;
+      user: User;
+    }>(this.url, user);
   }
 
   public checkLoged(): boolean {

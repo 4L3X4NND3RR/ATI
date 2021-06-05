@@ -7,7 +7,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 const routes: Routes = [
   { path: 'main-page', component: MainPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'create-user', component: CreateUserComponent}
+  { path: 'create-user', component: CreateUserComponent },
+  { path: '', component: MainPageComponent },
 ];
 
 @NgModule({
